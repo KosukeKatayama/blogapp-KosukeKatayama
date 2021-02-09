@@ -2,7 +2,11 @@
   %ul
     - article.errors.full_messages.each do |message|
       %li= message
-  = form_with(model: article, url: articles_path, method: 'post', local: true) do |f|
+  = form_with(model: article, local: true) do |f|
+    %div
+      = f.label :eyecatch, 'アイキャッチ'
+    %div
+      = f.file_field :eyecatch
     %div
       = f.label :title, 'タイトル'
     %div
