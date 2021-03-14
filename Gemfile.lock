@@ -120,6 +120,8 @@ GEM
     faker (2.15.1)
       i18n (>= 1.6, < 2)
     ffi (1.14.2)
+    ffi (1.14.2-x64-mingw32)
+    ffi (1.14.2-x86-mingw32)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     haml (5.2.1)
@@ -136,6 +138,9 @@ GEM
       ruby_parser (~> 3.5)
     i18n (1.8.7)
       concurrent-ruby (~> 1.0)
+    image_processing (1.12.1)
+      mini_magick (>= 4.9.5, < 5)
+      ruby-vips (>= 2.0.17, < 3)
     jbuilder (2.11.0)
       activesupport (>= 5.0.0)
     jmespath (1.4.0)
@@ -152,6 +157,7 @@ GEM
       mimemagic (~> 0.3.2)
     method_source (1.0.0)
     mimemagic (0.3.5)
+    mini_magick (4.11.0)
     mini_mime (1.0.2)
     mini_portile2 (2.5.0)
     minitest (5.14.3)
@@ -242,6 +248,8 @@ GEM
       rack (>= 1.1)
       rubocop (>= 0.90.0, < 2.0)
     ruby-progressbar (1.11.0)
+    ruby-vips (2.1.0)
+      ffi (~> 1.12)
     ruby_dep (1.5.0)
     ruby_parser (3.15.1)
       sexp_processor (~> 4.9)
@@ -326,6 +334,7 @@ DEPENDENCIES
   erb2haml
   faker
   hamlit
+  image_processing (~> 1.2)
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
@@ -347,4 +356,4 @@ RUBY VERSION
    ruby 2.6.5p114
 
 BUNDLED WITH
-   2.2.6
+   2.2.11
