@@ -12,6 +12,19 @@ const handleHeartDisplay = (hasLiked) => {
     }
 }
 
+const handleCommentForm = () => {
+    $('.show-comment-form').on('click', () => {
+        $('.show-comment-form').addClass('hidden')
+        $('.comment-text-area').removeClass('hidden')
+    })
+}
+
+const appendNewComment = (comment) => {
+    $('.comments-container').append(
+        `<div class="article_comment"><p>${comment.content}</p></div>`
+    )
+}
+
 document.addEventListener('turbolinks:load', () => {
     const dataset = $('#article-show').data()
     const articleId = dataset.articleId
@@ -20,16 +33,11 @@ document.addEventListener('turbolinks:load', () => {
         .then((response) => {
             const comments = response.data
             comments.forEach((comment) => {
-                $('.comments-container').append(
-                    `<div class="article_comment"><p>${comment.content}</p></div>`
-                )
+                appendNewComment(comment)
             })
         })
 
-    $('.show-comment-form').on('click', () => {
-        $('.show-comment-form').addClass('hidden')
-        $('.comment-text-area').removeClass('hidden')
-    })
+    handleCommentForm()
 
     $('.add-comment-button').on('click', () => {
         const content = $('#comment_content').val()
@@ -41,9 +49,7 @@ document.addEventListener('turbolinks:load', () => {
             })
                 .then((res) => {
                     const comment = res.data
-                    $('.comments-container').append(
-                        `<div class="article_comment"><p>${comment.content}</p></div>`
-                    )
+                    appendNewComment(comment)
                     $('#comment_content').val('')
                 })
         }
